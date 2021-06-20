@@ -36,7 +36,8 @@ function retrieveSongs(data) {
     songs.forEach(song => {
         const newLi = document.createElement('li')
         newLi.innerHTML = `<h3>${data.results.trackName}</h3>`
-        document.getElementById("list").appendChild(newLi)
+        document.getElementById("list").append(newLi)
+        document.getElementById("form-artist-name").reset()
     })
 }
 

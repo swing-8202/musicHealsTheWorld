@@ -8,26 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Music Heals The World</h1>
-    <h2>Sophie's Perspective (June 19, 2021)</h2>
-    <h3>Artist by Song</h3>
+    <div id="main-content">
+        <h1>Music Heals The World</h1>
+        <p>Hi. My name is Sophie, I'm a software engineering student and this is my first web app.
+            With my first JavaScript project, I chose to retrieve songs from iTunes.
+            
+        </p>
 
-    <form id="form-artist-name">
-        <input type="text" id="input-artist-name" placeholder="Artist+Name">
-        <input type="submit" value="Retrieve First 4 Songs from iTunes (Use + for Spaces)">
-        <input type="reset" value="Reset Songs">
-    </form>
+        <form id="form-artist-name">
+            <input type="text" id="input-artist-name" placeholder="Artist+Name">
+            <br><input type="submit" value="Retrieve First 4 Songs from iTunes (Use + for Spaces)"></br>
+        </form>
 
-    <div id="reset">
-        <div id="div-list">
-            <ul id="list">
-            </ul>
-        </div2>
+        <div id="reset">
+            <div id="div-list">
+                <ul id="list">
+                </ul>
+            </div2>
+        </div>
+
+        <input type="button" id="reset-button" value="Reset" onclick="reset()">
+
+        <script src="index.js"></script>
     </div>
-
-    <input type="button" id="reset-button" value="Reset" onclick="reset()">
-
-    <script src="index.js"></script>
 </body>
 
 </html>

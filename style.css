@@ -1,4 +1,39 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
 body {
     background: rgb(197, 233, 247);
 }
 
+#main-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+}
+
+#form-artist-name {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+  }
+
+  ::-webkit-input-placeholder {
+      text-align: center;
+  }
+
+  p {
+      text-align: center;
+  }
