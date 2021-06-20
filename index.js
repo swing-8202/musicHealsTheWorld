@@ -1,5 +1,5 @@
 //Event Listener 1 (EL1)
-//User clicks to retrieve a 8 song genres in alphabetical order (8 is my lucky number)
+//User clicks to retrieve a list of the first 10 songs by artist from iTunes
 //Event Listener 2 (EL2)
 //User clicks on like and song stays on list
 //Event Listener 3 (EL3)
@@ -13,24 +13,24 @@
 const formArtistName = document.getElementById("form-artist-name")
 const inputArtistName = document.getElementById("input-artist-name")
 
-//Add event listener to the form - 2 parts
-
-
-//Manipulate inputArtistName to obtain fetchURL
-function fetchURLAddress(inputArtistName) {
-        const fetchURLPrefix = "https://itunes.apple.com/search?term="
-        const fetchURLSuffix = "&entity=song&limit=10"
-        //Replace spaces with '+' for fetchURL
-        const fetchURLArtist = inputArtistName.replaceAll(/ /g, "+")
-        return `${fetchURLPrefix} + ${fetchURLArtist} + ${fetchURLSuffix}`
-    }
 //Add event listener to the form
 formArtistName.addEventListener('submit', handleSubmit)
 
 function handleSubmit(event){
     event.preventDefault()
-    const fetchURL = fetchURLAddress()
+    const fetchURL = createFetchURL()
     fetch(fetchURL)
-    .then(res => res.json())
+    .then(result => result.json())
     .then(json => console.log(json))
+}
+
+//Interpolate inputArtistName into URL to create fetchURL
+//To test fetchURL const fetchURL = "https://itunes.apple.com/search?term=alexi+murdoch&entity=song&limit=10"
+function createFetchURL(inputArtistName) {
+    const fetchURLPrefix = "https://itunes.apple.com/search?term="
+    const fetchURLSuffix = "&entity=song&limit=10"
+    //Replace spaces with '+' for fetchURLArtistName
+    //const fetchURLArtistName = inputArtistName.replace(" ", "+")
+    const fetchURL = `${fetchURLPrefix} + ${inputArtistName} + ${fetchURLSuffix}`
+    return fetchURL
 }
