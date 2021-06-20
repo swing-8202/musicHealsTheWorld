@@ -10,12 +10,14 @@
 //document.addEventListener('DOMContentLoaded', init)
 
 //Variable fetchURL prework via iTunes API website
+//To test fetch = "https://itunes.apple.com/search?term=alexi+murdoch&entity=song&limit=10"
 const fetchURLPrefix = "https://itunes.apple.com/search?term="
 const fetchURLSuffix = "&entity=song&limit=10"
 
 //Select html elements
 const formArtistName = document.getElementById("form-artist-name")
 const inputArtistName = document.getElementById("input-artist-name")
+const list = document.getElementById("list")
 
 //Add event listener to the form
 formArtistName.addEventListener('submit', handleSubmit)
@@ -24,11 +26,18 @@ function handleSubmit(event){
     event.preventDefault()
     fetch(fetchURLPrefix + inputArtistName.value + fetchURLSuffix)
     .then(res => res.json())
-    //.then(json => console.log(json))
     .then(retrieveSongs)
+
 }
 
 function retrieveSongs(data) {
     console.log(data)
+    const songs = data.results
+    songs.forEach(song => {
+        const newLi = document.createElement('li')
+        newLi.innerHTML = `<h3>${data.results.trackName}</h3>`
+        document.getElementById("list").appendChild(newLi)
+    })
 }
 
+formArtistName.reset()
