@@ -9,6 +9,10 @@
 //Add comment about 'DOMContenetLoaded'
 //document.addEventListener('DOMContentLoaded', init)
 
+//Variable fetchURL prework via iTunes API website
+const fetchURLPrefix = "https://itunes.apple.com/search?term="
+const fetchURLSuffix = "&entity=song&limit=10"
+
 //Select html elements
 const formArtistName = document.getElementById("form-artist-name")
 const inputArtistName = document.getElementById("input-artist-name")
@@ -18,19 +22,13 @@ formArtistName.addEventListener('submit', handleSubmit)
 
 function handleSubmit(event){
     event.preventDefault()
-    const fetchURL = createFetchURL()
-    fetch(fetchURL)
-    .then(result => result.json())
-    .then(json => console.log(json))
+    fetch(fetchURLPrefix + inputArtistName.value + fetchURLSuffix)
+    .then(res => res.json())
+    //.then(json => console.log(json))
+    .then(retrieveSongs)
 }
 
-//Interpolate inputArtistName into URL to create fetchURL
-//To test fetchURL const fetchURL = "https://itunes.apple.com/search?term=alexi+murdoch&entity=song&limit=10"
-function createFetchURL(inputArtistName) {
-    const fetchURLPrefix = "https://itunes.apple.com/search?term="
-    const fetchURLSuffix = "&entity=song&limit=10"
-    //Replace spaces with '+' for fetchURLArtistName
-    //const fetchURLArtistName = inputArtistName.replace(" ", "+")
-    const fetchURL = `${fetchURLPrefix} + ${inputArtistName} + ${fetchURLSuffix}`
-    return fetchURL
+function retrieveSongs(data) {
+    console.log(data)
 }
+
