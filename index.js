@@ -6,13 +6,13 @@
 //User clicks on disklike and song deletes from list
 
 
-//Add comment about 'DOMContenetLoaded'
+//added js script src to end of index.html body
 //document.addEventListener('DOMContentLoaded', init)
 
 //Variable fetchURL prework via iTunes API website
 //To test fetch = "https://itunes.apple.com/search?term=alexi+murdoch&entity=song&limit=10"
 const fetchURLPrefix = "https://itunes.apple.com/search?term="
-const fetchURLSuffix = "&entity=song&limit=10"
+const fetchURLSuffix = "&entity=song&limit=4"
 
 //Select html elements
 const formArtistName = document.getElementById("form-artist-name")
@@ -40,4 +40,6 @@ function retrieveSongs(data) {
     })
 }
 
-formArtistName.reset()
+function reset() {
+    document.getElementById("reset").remove()
+}

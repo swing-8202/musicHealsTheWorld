@@ -11,14 +11,23 @@
     <h1>Music Heals The World</h1>
     <h2>Sophie's Perspective (June 19, 2021)</h2>
     <h3>Artist by Song</h3>
+
     <form id="form-artist-name">
         <input type="text" id="input-artist-name" placeholder="Artist+Name">
-        <input type="submit" value="Retrieve First 10 Songs from iTunes (Use + for Spaces)">
+        <input type="submit" value="Retrieve First 4 Songs from iTunes (Use + for Spaces)">
+        <input type="reset" value="Reset Songs">
     </form>
-    <div>
-        <ul id="list">
-        </ul>
+
+    <div id="reset">
+        <div id="div-list">
+            <ul id="list">
+            </ul>
+        </div2>
     </div>
+
+    <input type="button" id="reset-button" value="Reset" onclick="reset()">
+
     <script src="index.js"></script>
 </body>
+
 </html>
