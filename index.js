@@ -10,7 +10,7 @@
 //document.addEventListener('DOMContentLoaded', init)
 
 //Variable fetchURL prework via iTunes API website
-//To test fetch = "https://itunes.apple.com/search?term=alexi+murdoch&entity=song&limit=10"
+//To test fetch = "https://itunes.apple.com/search?term=alexi+murdoch&entity=song&limit=4"
 const fetchURLPrefix = "https://itunes.apple.com/search?term="
 const fetchURLSuffix = "&entity=song&limit=4"
 
@@ -32,15 +32,31 @@ function handleSubmit(event){
 
 function retrieveSongs(data) {
     console.log(data)
-    const songs = data.results
+    const songs = data['results']
     songs.forEach(song => {
         const newLi = document.createElement('li')
-        newLi.innerHTML = `<h3>${data.results.trackName}</h3>`
+        newLi.innerHTML = `<h3>${song['trackName']}</h3>`
         document.getElementById("list").append(newLi)
         document.getElementById("form-artist-name").reset()
+        const heart = document.createElement('i')
+        heart.classList.add("fa", "fa-heart")
+        heart.setAttribute("id", "heart")
+        newLi.append(heart)
     })
 }
 
 function reset() {
-    document.getElementById("reset").remove()
+    const resetList = document.getElementById("list")
+    resetList.innerHTML = ''
 }
+
+/*
+//Add heart to list
+<i class="fa fa-heart" id="heart"></i>
+function() {
+    const heart = document.getElementById('heart');
+    heart.addEventListener('click', function() {
+        heart.classList.toggle('red');
+    });
+}
+*/

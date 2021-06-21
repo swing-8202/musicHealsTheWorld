@@ -28,12 +28,21 @@ body {
     background: rgba(255, 255, 255, 0.3);
     padding: 15px 20px 18px 18px;
     border-radius: 5px;
-  }
+}
 
-  ::-webkit-input-placeholder {
-      text-align: center;
-  }
+::-webkit-input-placeholder {
+  text-align: center;
+}
 
-  p {
-      text-align: center;
-  }
+p {
+  text-align: center;
+}
+
+#heart {
+  color: grey;
+  font-size: 50px;
+}
+
+#heart.red {
+    color: red;
+}
