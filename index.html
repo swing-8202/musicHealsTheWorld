@@ -10,27 +10,24 @@
 <body>
     <div id="main-content">
         <h1>Music Heals The World</h1>
+        <h1 id="heart-header">&#x1F394</h1>
         <p>Hi. My name is Sophie, I'm a software engineering student and this is my first web app.
-            With my first JavaScript project, I chose to retrieve songs from iTunes.
+            With my first JavaScript project, I chose to retrieve the first four songs from the iTunes API.
             
         </p>
 
         <form id="form-artist-name">
             <input type="text" id="input-artist-name" placeholder="Artist+Name">
-            <br><input type="submit" value="Retrieve First 4 Songs from iTunes (Use + for Spaces)"></br>
+            <br><input type="submit" value="Retrieve Songs (Use + for Spaces)"></br>
         </form>
 
-        <div id="reset">
-            <div id="div-list">
-                <ul id="list">
-                </ul>
-            </div2>
-        </div>
-
-        <input type="button" id="reset-button" value="Reset" onclick="reset()">
+        <br><input type="button" id="reset-button" value="Reset Songs" onclick="reset()"></br>
 
         <script src="index.js"></script>
     </div>
+
+    <div id="song-list"></div>
+
 </body>
 
 </html>

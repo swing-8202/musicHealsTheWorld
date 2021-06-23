@@ -1,5 +1,5 @@
 * {
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -16,6 +16,11 @@ body {
     background: rgba(255, 255, 255, 0.3);
     padding: 15px 20px 18px 18px;
     border-radius: 5px;
+}
+
+#heart-header {
+  color: red;
+  font-size: 50px;
 }
 
 #form-artist-name {
@@ -38,11 +43,12 @@ p {
   text-align: center;
 }
 
-#heart {
-  color: grey;
-  font-size: 50px;
+#reset-button {
+  align-items: center;
 }
 
-#heart.red {
-    color: red;
+}
+
+#heart-like {
+  color: grey;
 }

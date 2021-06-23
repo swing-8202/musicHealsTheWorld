@@ -14,49 +14,47 @@
 const fetchURLPrefix = "https://itunes.apple.com/search?term="
 const fetchURLSuffix = "&entity=song&limit=4"
 
-//Select html elements
-const formArtistName = document.getElementById("form-artist-name")
-const inputArtistName = document.getElementById("input-artist-name")
-const list = document.getElementById("list")
+//Select html elements - changed or moved to code below
+//const inputArtistName = document.getElementById("input-artist-name")
+//const formArtistName = document.getElementById("form-artist-name")
+//const list = document.getElementById("list")
 
 //Add event listener to the form
+const formArtistName = document.getElementById("form-artist-name")
 formArtistName.addEventListener('submit', handleSubmit)
 
 function handleSubmit(event){
     event.preventDefault()
+    const inputArtistName = document.getElementById("input-artist-name")
     fetch(fetchURLPrefix + inputArtistName.value + fetchURLSuffix)
     .then(res => res.json())
     .then(retrieveSongs)
-
 }
 
 function retrieveSongs(data) {
     console.log(data)
     const songs = data['results']
     songs.forEach(song => {
-        const newLi = document.createElement('li')
-        newLi.innerHTML = `<h3>${song['trackName']}</h3>`
-        document.getElementById("list").append(newLi)
+        
+        const newDiv = document.createElement('div')
+        newDiv.innerHTML = `
+                            <p>${song['trackName']}</p>
+                            <p id="heart-like" onclick="heartLike()">&#x1F394</p>
+                        `
+        
+        document.getElementById("song-list").appendChild(newDiv)
+
         document.getElementById("form-artist-name").reset()
-        const heart = document.createElement('i')
-        heart.classList.add("fa", "fa-heart")
-        heart.setAttribute("id", "heart")
-        newLi.append(heart)
+        
     })
 }
 
 function reset() {
-    const resetList = document.getElementById("list")
-    resetList.innerHTML = ''
+    const resetNewDiv = document.getElementById("song-list")
+    resetNewDiv.innerHTML = ''
 }
 
-/*
-//Add heart to list
-<i class="fa fa-heart" id="heart"></i>
-function() {
-    const heart = document.getElementById('heart');
-    heart.addEventListener('click', function() {
-        heart.classList.toggle('red');
-    });
+function heartLike() {
+    document.getElementById("heart-like").style.color = "red"
 }
-*/
+
